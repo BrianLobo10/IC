@@ -63,7 +63,7 @@ import { SensorData } from '../../models/sensor-data.model';
               (click)="exportData()"
               class="btn-secondary w-full"
             >
-              📥 Exportar CSV.
+              📥 Exportar CSV
             </button>
           </div>
         </div>
