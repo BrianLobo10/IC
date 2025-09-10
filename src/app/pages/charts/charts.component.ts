@@ -21,7 +21,6 @@ Chart.register(...registerables);
         </p>
       </div>
 
-      <!-- Chart Controls -->
       <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 mb-6">
         <div class="flex flex-wrap gap-4 items-center">
           <button
@@ -53,9 +52,7 @@ Chart.register(...registerables);
         </div>
       </div>
 
-      <!-- Charts Grid -->
       <div class="space-y-6">
-        <!-- Line Chart -->
         <div class="card">
           <h2 class="text-lg font-medium text-gray-900 mb-4">Tendencias Temporales</h2>
           <div class="h-96">
@@ -63,7 +60,6 @@ Chart.register(...registerables);
           </div>
         </div>
 
-        <!-- Bar Chart -->
         <div class="card">
           <h2 class="text-lg font-medium text-gray-900 mb-4">Valores Actuales</h2>
           <div class="h-80">
@@ -71,7 +67,6 @@ Chart.register(...registerables);
           </div>
         </div>
 
-        <!-- Stats Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="card text-center">
             <h3 class="text-lg font-medium text-gray-900 mb-2">Temperatura</h3>
@@ -268,7 +263,6 @@ export class ChartsComponent implements OnInit, OnDestroy, AfterViewInit {
   private updateCharts(): void {
     const filteredData = this.getFilteredData();
     
-    // Update line chart
     if (this.lineChart) {
       this.lineChart.data.labels = filteredData.map(d => d.timestamp.toISOString());
       this.lineChart.data.datasets[0].data = filteredData.map(d => d.temperature);
@@ -277,7 +271,6 @@ export class ChartsComponent implements OnInit, OnDestroy, AfterViewInit {
       this.lineChart.update('none');
     }
 
-    // Update bar chart
     if (this.barChart && this.currentData) {
       this.barChart.data.datasets[0].data = [
         this.currentData.temperature,

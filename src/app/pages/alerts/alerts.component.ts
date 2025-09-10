@@ -18,7 +18,6 @@ import { Alert } from '../../models/sensor-data.model';
         </p>
       </div>
 
-      <!-- Alert Summary -->
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
         <div class="card text-center">
           <div class="text-3xl mb-2">🚨</div>
@@ -42,7 +41,6 @@ import { Alert } from '../../models/sensor-data.model';
         </div>
       </div>
 
-      <!-- Current Thresholds -->
       <div class="card mb-8">
         <h2 class="text-lg font-medium text-gray-900 mb-4">Umbrales Actuales</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -69,7 +67,6 @@ import { Alert } from '../../models/sensor-data.model';
         </div>
       </div>
 
-      <!-- Active Alerts -->
       <div class="card mb-8" *ngIf="getActiveAlerts().length > 0">
         <div class="flex items-center justify-between mb-4">
           <h2 class="text-lg font-medium text-gray-900 flex items-center">
@@ -110,7 +107,6 @@ import { Alert } from '../../models/sensor-data.model';
         </div>
       </div>
 
-      <!-- All Alerts History -->
       <div class="card">
         <div class="flex items-center justify-between mb-4">
           <h2 class="text-lg font-medium text-gray-900">Histórico de Alertas</h2>

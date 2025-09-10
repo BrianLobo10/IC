@@ -29,7 +29,7 @@ import { AppConfig } from '../../models/sensor-data.model';
               <input
                 type="text"
                 [(ngModel)]="localConfig.esp32BaseUrl"
-                placeholder="http://192.168.1.100"
+                placeholder="http://192.168.1.7"
                 class="w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
               >
               <p class="mt-1 text-xs text-gray-500">
@@ -259,7 +259,7 @@ import { AppConfig } from '../../models/sensor-data.model';
 export class SettingsComponent implements OnInit {
   localConfig: AppConfig = {
     updateInterval: 3000,
-    esp32BaseUrl: 'http://192.168.1.100',
+    esp32BaseUrl: 'http://192.168.1.7',
     alertThresholds: {
       temperatureMin: 15,
       temperatureMax: 35,
@@ -307,7 +307,7 @@ export class SettingsComponent implements OnInit {
   resetToDefaults(): void {
     this.localConfig = {
       updateInterval: 3000,
-      esp32BaseUrl: 'http://192.168.1.100',
+      esp32BaseUrl: 'http://192.168.1.7',
       alertThresholds: {
         temperatureMin: 15,
         temperatureMax: 35,

@@ -12,7 +12,6 @@ import { SensorData, Alert } from '../../models/sensor-data.model';
   imports: [CommonModule, MetricCardComponent],
   template: `
     <div class="animate-fade-in">
-      <!-- Header -->
       <div class="mb-8">
         <h1 class="text-3xl font-bold text-gray-900">Dashboard Ambiental</h1>
         <p class="mt-2 text-gray-600">
@@ -34,7 +33,6 @@ import { SensorData, Alert } from '../../models/sensor-data.model';
         </div>
       </div>
 
-      <!-- Active Alerts -->
       <div *ngIf="activeAlerts.length > 0" class="mb-6">
         <div class="bg-red-50 border border-red-200 rounded-lg p-4">
           <h3 class="text-red-800 font-medium mb-2">🚨 Alertas Activas</h3>
@@ -56,7 +54,6 @@ import { SensorData, Alert } from '../../models/sensor-data.model';
         </div>
       </div>
 
-      <!-- Metrics Grid -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <app-metric-card
           *ngIf="currentData"
@@ -132,21 +129,17 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    // Subscribe to sensor data
     this.subscriptions.add(
       this.esp32Service.data$.subscribe(data => {
         if (data) {
           this.previousData = this.currentData;
           this.currentData = data;
           this.lastUpdate = data.timestamp;
+        } else {
+          this.previousData = this.currentData ?? null;
+          this.currentData = null;
+          this.lastUpdate = null;
         }
-      })
-    );
-
-    // Subscribe to alerts
-    this.subscriptions.add(
-      this.alertService.alerts$.subscribe(alerts => {
-        this.activeAlerts = alerts.filter(alert => alert.active);
       })
     );
   }
@@ -199,7 +192,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   getUptimePercentage(): number {
-    // Simulated uptime calculation
     return 98.5;
   }
 
