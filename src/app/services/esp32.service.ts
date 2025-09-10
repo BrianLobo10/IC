@@ -66,7 +66,7 @@ export class Esp32Service {
         timestamp: new Date()
       })),
       catchError(err => {
-        console.error('❌ Error al conectar con ESP32:', err);
+        console.error('❌ Error al conectar con ESP32: :3', err);
         return of(null);
       })
     );
